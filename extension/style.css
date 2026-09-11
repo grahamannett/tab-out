@@ -81,133 +81,6 @@ header {
   text-transform: uppercase;
 }
 
-/* ---- On-device tab chat: a disclosure, not another dashboard column ---- */
-.action-btn.tab-chat-toggle,
-.tab-chat .tab-chat-button {
-  min-height: 36px;
-  font-size: 13px;
-  color: var(--ink);
-  padding: 7px 12px;
-}
-
-.tab-chat-toggle svg { width: 16px; height: 16px; }
-.tab-chat-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
-header:has(.tab-chat-toggle[aria-expanded="true"]) { margin-bottom: 16px; }
-
-.tab-chat {
-  background: var(--card-bg);
-  border: 1px solid var(--warm-gray);
-  border-radius: 8px;
-  padding: 16px 18px;
-  margin-bottom: 16px;
-  min-width: 0;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.tab-chat[hidden],
-.tab-chat [hidden] { display: none; }
-
-.tab-chat-heading,
-.tab-chat-compose-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.tab-chat h2 {
-  font-family: 'Newsreader', serif;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.tab-chat-caption,
-.tab-chat-hint,
-.tab-chat-note,
-.tab-chat-tab-meta,
-.tab-chat-tab-url,
-.tab-chat-speaker {
-  color: var(--accent-slate);
-  font-size: 12px;
-}
-
-.tab-chat-availability { margin-top: 12px; }
-.tab-chat-availability p:empty { display: none; }
-.tab-chat-availability button,
-.tab-chat-availability a { margin-top: 8px; }
-.tab-chat-availability a { color: var(--ink); margin-left: 8px; }
-.tab-chat-availability label { display: block; margin-top: 8px; }
-.tab-chat progress { display: block; width: 100%; height: 8px; margin-top: 4px; accent-color: var(--accent-sage); }
-
-.tab-chat-log {
-  max-height: 240px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  overflow-wrap: anywhere;
-  scrollbar-gutter: stable;
-}
-.tab-chat-log:empty { display: none; }
-.tab-chat-message { padding: 14px 0; border-bottom: 1px solid var(--warm-gray); }
-.tab-chat-message:last-child { border-bottom: 0; }
-.tab-chat-message-user { padding-left: 12px; border-left: 2px solid var(--warm-gray); margin-top: 12px; }
-.tab-chat-speaker { font-weight: 600; margin-bottom: 4px; }
-.tab-chat-message-text { white-space: pre-wrap; }
-.tab-chat-list-label { margin-top: 10px; font-weight: 600; }
-.tab-chat-tabs { list-style: none; margin: 6px 0; }
-.tab-chat-tab {
-  display: block;
-  width: 100%;
-  min-height: 36px;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  padding: 8px;
-  text-align: left;
-  color: var(--ink);
-  font: inherit;
-  cursor: pointer;
-  overflow-wrap: anywhere;
-}
-.tab-chat-tab:hover:not(:disabled) { background: var(--paper); border-color: var(--warm-gray); }
-.tab-chat-tab span { display: block; }
-.tab-chat-tab-title { font-weight: 500; }
-.tab-chat-exclusions { padding-left: 20px; margin: 10px 0; }
-.tab-chat-confirm-title { font-size: 15px; margin-top: 12px; }
-.tab-chat .tab-chat-confirm { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.tab-chat-note { margin-top: 8px; }
-.tab-chat-examples,
-.tab-chat-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-.tab-chat-examples { margin: 14px 0; }
-.tab-chat-actions { flex-shrink: 0; }
-.tab-chat-form { margin-top: 14px; }
-.tab-chat-form > label { display: block; font-weight: 500; margin-bottom: 6px; }
-.tab-chat textarea {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  min-height: 64px;
-  max-height: 180px;
-  resize: vertical;
-  padding: 10px 12px;
-  background: var(--paper);
-  color: var(--ink);
-  border: 1px solid var(--warm-gray);
-  border-radius: 6px;
-  font: inherit;
-}
-.tab-chat textarea::placeholder { color: var(--accent-slate); opacity: 1; }
-.tab-chat-compose-actions { margin-top: 10px; align-items: center; }
-.tab-chat button:disabled { cursor: default; color: var(--accent-slate); background: var(--paper); }
-.tab-chat .tab-chat-confirm:disabled { background: var(--warm-gray); border-color: var(--warm-gray); }
-.tab-chat :focus-visible,
-.tab-chat-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-
-@media (prefers-reduced-motion: reduce) {
-  .tab-chat *,
-  .tab-chat-toggle { transition: none; animation: none; }
-}
-
 /* ---- Tab cleanup banner ---- */
 .tab-cleanup-banner {
   background: linear-gradient(135deg, rgba(200, 113, 58, 0.04), rgba(200, 113, 58, 0.09));
@@ -1039,27 +912,13 @@ footer { animation: fadeUp 0.5s ease 0.65s both; }
 }
 
 /* On narrow screens, stack vertically */
-@media (max-width: 980px) {
+@media (max-width: 800px) {
   .dashboard-columns {
     flex-direction: column;
-  }
-  .dashboard-columns .active-section {
-    min-width: 0;
-    width: 100%;
-  }
-  header {
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .tab-chat-heading,
-  .tab-chat-compose-actions {
-    flex-wrap: wrap;
   }
   .deferred-column {
     width: 100%;
     position: static;
-    max-height: none;
-    overflow: visible;
   }
 }
 

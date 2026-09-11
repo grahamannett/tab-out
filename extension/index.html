@@ -26,45 +26,7 @@
       <!-- "Friday, April 4, 2026" — written by getDateDisplay() in app.js -->
       <div class="date" id="dateDisplay"></div>
     </div>
-    <button type="button" id="tabChatToggle" class="action-btn tab-chat-toggle" aria-expanded="false" aria-controls="tabChat">
-      Ask your tabs
-      <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 8 4 4 4-4"/></svg>
-    </button>
   </header>
-
-  <section id="tabChat" class="tab-chat" aria-labelledby="tabChatTitle" hidden>
-    <div class="tab-chat-heading">
-      <div>
-        <h2 id="tabChatTitle">Ask your tabs</h2>
-        <p class="tab-chat-caption">On-device · Titles and URLs only</p>
-      </div>
-      <button type="button" id="tabChatClear" class="action-btn tab-chat-button">Clear chat</button>
-    </div>
-    <div class="tab-chat-availability">
-      <p id="tabChatStatus" role="status" aria-live="polite"></p>
-      <button type="button" id="tabChatSetup" class="action-btn tab-chat-button">Check again</button>
-      <a id="tabChatRequirements" href="https://developer.chrome.com/docs/ai/get-started" target="_blank" rel="noopener noreferrer" hidden>Chrome requirements</a>
-      <label id="tabChatProgressLabel" for="tabChatProgress" hidden>Local model download</label>
-      <progress id="tabChatProgress" max="1" value="0" hidden></progress>
-    </div>
-    <div id="tabChatLog" class="tab-chat-log" role="log" aria-label="Tab chat conversation" aria-live="polite"></div>
-    <div id="tabChatExamples" class="tab-chat-examples">
-      <button type="button" class="action-btn tab-chat-button" data-action="chat-example" data-prompt="How many tabs do I have?">How many tabs do I have?</button>
-      <button type="button" class="action-btn tab-chat-button" data-action="chat-example" data-prompt="Find Hacker News tabs">Find Hacker News tabs</button>
-      <button type="button" class="action-btn tab-chat-button" data-action="chat-example" data-prompt="Close extras">Close extras</button>
-    </div>
-    <form id="tabChatForm" class="tab-chat-form">
-      <label for="tabChatInput">Ask about your open tabs</label>
-      <textarea id="tabChatInput" rows="2" aria-describedby="tabChatHint" placeholder="How many tabs are related to Hacker News?" autocomplete="off" spellcheck="false"></textarea>
-      <div class="tab-chat-compose-actions">
-        <p id="tabChatHint" class="tab-chat-hint">Closures always require confirmation. Shift+Enter for a new line.</p>
-        <div class="tab-chat-actions">
-          <button type="button" id="tabChatStop" class="action-btn tab-chat-button" hidden>Stop</button>
-          <button type="submit" id="tabChatSend" class="action-btn primary tab-chat-button" disabled>Send</button>
-        </div>
-      </div>
-    </form>
-  </section>
 
   <!-- ================================================================
        TAB OUT DUPES BANNER — appears when you have extra Tab Out tabs open
@@ -167,8 +129,7 @@
 <!-- If the file doesn't exist, that's fine — app.js uses sensible defaults. -->
 <script src="config.local.js" onerror="/* no personal config, that's fine */"></script>
 
-<!-- Dashboard first; chat reuses its deterministic tab operations. -->
+<!-- Main dashboard logic — loads last so the DOM is ready -->
 <script src="app.js"></script>
-<script src="tab-chat.js"></script>
 </body>
 </html>
